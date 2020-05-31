@@ -130,7 +130,7 @@ publish:
   script:
     - ls -l
     - yarn lerna --version
-    - yarn lerna publish from-git --registry https://${NPM_REGISTRY} --no-verify-access --yes
+    - yarn lerna publish from-package --registry https://${NPM_REGISTRY} --no-verify-access --yes
   only:
     variables:
       - $TRIGGERED_JOB == "publish"
