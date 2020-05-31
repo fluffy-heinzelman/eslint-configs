@@ -1,0 +1,6 @@
+# Testing
+jest.config.js
+*.test.js
+
+# Linting
+.eslintrc.js

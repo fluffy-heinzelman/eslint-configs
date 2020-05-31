@@ -1,0 +1,45 @@
+{
+  "name": "@heinzelman-labs/eslint-config-typescript",
+  "version": "0.0.0",
+  "description": "Heinzelman TypeScript ESLint configuration based on @typescript-eslint/eslint-plugin",
+  "main": "index.js",
+  "repository": "git@gitlab.com:fluffy-heinzelman/eslint-configs.git",
+  "homepage": "https://gitlab.com/fluffy-heinzelman/eslint-configs",
+  "bugs": {
+    "url": "https://gitlab.com/fluffy-heinzelman/eslint-configs/-/issues"
+  },
+  "author": "Micha Meyer <heinzelman.code@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "airbnb",
+    "javascript",
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests --runInBand",
+    "lint": "eslint \"**/*.js\"",
+    "lint:fix": "yarn run lint --fix"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "2.29.0",
+    "@typescript-eslint/parser": "^2.29.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0 || ^7.0.0"
+  }
+}

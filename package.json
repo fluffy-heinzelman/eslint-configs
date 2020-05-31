@@ -1,0 +1,24 @@
+{
+  "name": "eslinte-configs",
+  "version": "0.0.0-semver-lerna",
+  "description": "Shareable ESLint configuration packages (personal)",
+  "author": "Micha Meyer <heinzelman.code@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "test": "jest --passWithNoTests --runInBand",
+    "lint": "lerna run lint --parallel --npm-client yarn",
+    "lint:fix": "lerna run lint:fix --parallel --npm-client yarn",
+    "trigger:help": "bash ./trigger-ci.sh -h",
+    "trigger:publish": "bash ./trigger-ci.sh -p 19101883 -f TRIGGERED_JOB:publish"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "lerna": "^3.20.2",
+    "lerna-alias": "^3.0.2"
+  }
+}

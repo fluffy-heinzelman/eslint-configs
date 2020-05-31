@@ -1,0 +1,136 @@
+# Env variables need to be set in project settings UI
+# (others used in code are predefined environment variables):
+# - NPM_REGISTRY
+# - NPM_TOKEN
+# - GITLAB_PA_TOKEN (flags: api, read_user)
+
+image: node:latest
+
+stages:
+  - setup
+  - test
+  - semver
+  - deploy
+
+before_script:
+  - git --version
+  - node --version
+  - npm config set registry "https://${NPM_REGISTRY}/"
+  - npm config set '//${NPM_REGISTRY}/:_authToken' "${NPM_TOKEN}"
+  - npm config set always-auth true
+  - yarn config set cache-folder .yarn
+
+.cache_paths: &cache_paths
+  - node_modules/
+  - packages/**/node_modules
+  - .yarn/
+
+# Template installing and caching dependencies for subsequent
+# pipeline runs and passing them as artifacts down to other
+# jobs in current pipeline.
+.install: &install_template
+  stage: setup
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths: *cache_paths
+    policy: pull-push
+  artifacts:
+    paths: *cache_paths
+  script:
+    - yarn install --frozen-lockfile  --cache-folder .yarn
+
+# Used to not run a job again after `semver` pushed changes
+# back to `master`.
+.except_after_semver: &except_after_semver
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /\[semver\]/
+      - $CI_MERGE_REQUEST_TITLE =~ /\[semver\]/
+
+install:
+  <<: *install_template
+  <<: *except_after_semver
+  only:
+    - master
+    - develop
+    - merge_request
+
+install:triggered:
+  <<: *install_template
+  only:
+    variables:
+      - $TRIGGERED_JOB == "publish"
+
+# Note: coverage not picked up by Gitlab when test stage is
+# split into 2 jobs. Moved this to `test` job for now.
+
+#lint:
+#  <<: *except_after_semver
+#  stage: test
+#  script:
+#    - yarn run lint
+#  only:
+#    - master
+#    - develop
+#    - merge_request
+
+test:
+  <<: *except_after_semver
+  stage: test
+  script:
+    - yarn run lint
+    - yarn run test
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  only:
+    - master
+    - develop
+    - merge_request
+
+semver:
+  <<: *except_after_semver
+  stage: semver
+  script:
+    - |
+      yarn lerna --version
+      # Make sure there are changed packages as this most likely
+      # depends on `ignoreChanges` settings in `lerna.json`.
+      if yarn lerna changed > /dev/null; then
+        # Checkout master and set remote origin so that `lerna`
+        # is able to `git push` changes back to `master`.
+        echo -e "Git configure..."
+        git config --global user.name "${GITLAB_USER_NAME}"
+        git config --global user.email "${GITLAB_USER_EMAIL}"
+        git checkout ${CI_COMMIT_REF_NAME}
+        git remote set-url origin "https://gitlab-ci-token:${GITLAB_PA_TOKEN}@gitlab.com/${CI_PROJECT_PATH}.git"
+        echo -e "Done!"
+
+        # Bump versions, commits changes, tag the commit and
+        # push to git remote.
+        echo -e "Bumping packages..."
+        yarn lerna version --message "chore(release): publish [semver]" --yes
+        echo -e "Done!"
+
+        echo -e "Triggering downstream pipeline to publish packages..."
+        curl -X POST -F token=${CI_JOB_TOKEN} -F ref=master -F "variables[TRIGGERED_JOB]=publish" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/trigger/pipeline" > /dev/null
+        echo -e "Done!"
+      else
+        echo "false positive, no changed packages found"
+        exit 0
+      fi
+  only:
+    refs:
+      - master
+    changes:
+      - "packages/**/*"
+      - .gitlab-ci.yml
+
+publish:
+  stage: deploy
+  needs: ["install:triggered"]
+  script:
+    - ls -l
+    - yarn lerna --version
+    - yarn lerna publish from-git --registry https://${NPM_REGISTRY} --no-verify-access --yes
+  only:
+    variables:
+      - $TRIGGERED_JOB == "publish"

@@ -1,0 +1,18 @@
+{
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "ignoreChanges": [
+        "**/*.test.js",
+        "**/.eslintrc.js",
+        "**/jest.config.js"
+      ]
+    }
+  }
+}
