@@ -1,5 +1,10 @@
 # @heinzelman-labs/eslint-config-typescript
 
+[![npm version](https://img.shields.io/npm/v/@heinzelman-labs/eslint-config-typescript?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-typescript)
+[![total downloads](https://img.shields.io/npm/dt/@heinzelman-labs/eslint-config-typescript?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-typescript)
+[![monthly downloads](https://img.shields.io/npm/dm/@heinzelman-labs/eslint-config-typescript?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-typescript)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-typescript)
+
 A personal ESLint shareable config for TypeScript projects based on the [recommended rules](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/recommended.json) defined by [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin).
 
 TypeScript rules only apply to `.ts` and `.tsx` files so that this config also works for mixed JS/TS code bases.
@@ -134,3 +139,7 @@ No changes.
 ### `@typescript-eslint/recommended-requiring-type-checking`
 
 No changes.
+
+## License
+
+[MIT License](LICENSE.md)
