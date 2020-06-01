@@ -1,5 +1,10 @@
 # @heinzelman-labs/eslint-config-react
 
+[![npm version](https://img.shields.io/npm/v/@heinzelman-labs/eslint-config-react?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-react)
+[![total downloads](https://img.shields.io/npm/dt/@heinzelman-labs/eslint-config-react?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-react)
+[![monthly downloads](https://img.shields.io/npm/dm/@heinzelman-labs/eslint-config-react?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-react)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-typescript)
+
 A personal ESLint shareable config for React projects based on [`eslint-config-airbnb`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb).
 
 ## References
@@ -122,3 +127,7 @@ No changes.
 ### React Hooks
 
 No changes.
+
+## License
+
+[MIT License](LICENSE.md)
