@@ -1,6 +1,6 @@
 {
   "name": "@heinzelman-labs/eslint-config-base",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Heinzelman basic ESLint configuration based on eslint-config-airbnb-base",
   "main": "index.js",
   "repository": "git@gitlab.com:fluffy-heinzelman/eslint-configs.git",
