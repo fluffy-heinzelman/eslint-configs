@@ -1,5 +1,10 @@
 # @heinzelman-labs/eslint-config-base
 
+[![npm version](https://img.shields.io/npm/v/@heinzelman-labs/eslint-config-base?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-base)
+[![total downloads](https://img.shields.io/npm/dt/@heinzelman-labs/eslint-config-base?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-base)
+[![monthly downloads](https://img.shields.io/npm/dm/@heinzelman-labs/eslint-config-base?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-base)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)](https://www.npmjs.com/package/@heinzelman-labs/eslint-config-typescript)
+
 A personal ESLint shareable config for ESNext projects based on [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base).
 
 ## References
@@ -242,3 +247,7 @@ No changes.
 +     tsx: 'never'
   }],
 ```
+
+## License
+
+[MIT License](LICENSE.md)
