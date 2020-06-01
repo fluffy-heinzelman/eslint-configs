@@ -1,11 +1,10 @@
-# Shareable linter configuration packages
+# Shareable ESLint configurations
 
-[![pipeline status](https://gitlab.com/fluffy-heinzelman/eslint-configs/badges/master/pipeline.svg)](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/commits/master)
-[![coverage report](https://gitlab.com/fluffy-heinzelman/eslint-configs/badges/master/coverage.svg)](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/commits/master)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![pipeline status](https://gitlab.com/fluffy-heinzelman/eslint-configs/badges/master/pipeline.svg?style=flat-square)](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/commits/master)
+[![coverage report](https://gitlab.com/fluffy-heinzelman/eslint-configs/badges/master/coverage.svg?style=flat-square)](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/commits/master)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?style=flat-square)](https://lerna.js.org/)
 
-
-Personal ESLint shareable config packages for ESNext, React and TypeScript projects.
+Personal [ESLint](https://eslint.org/) config packages for ESNext, React and TypeScript projects.
 
 ## `@heinzelman-labs/eslint-config-base`
 
