@@ -11,7 +11,8 @@
     "lint": "lerna run lint --parallel --npm-client yarn",
     "lint:fix": "lerna run lint:fix --parallel --npm-client yarn",
     "trigger:help": "bash ./trigger-ci.sh -h",
-    "trigger:publish": "bash ./trigger-ci.sh -p 19101883 -f TRIGGERED_JOB:publish"
+    "trigger:publish": "bash ./trigger-ci.sh -p 19101883 -f TRIGGERED_JOB:publish",
+    "bump-major-locally": "yarn run test && yarn run lint && yarn lerna version major --message \"chore(release): publish [semver]\" --force-publish --yes && yarn trigger:publish"
   },
   "workspaces": [
     "packages/*"
