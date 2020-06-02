@@ -1,5 +1,5 @@
 {
-  "name": "eslinte-configs",
+  "name": "eslint-configs",
   "version": "0.0.0-semver-lerna",
   "description": "Shareable ESLint configuration packages (personal)",
   "author": "Micha Meyer <heinzelman.code@gmail.com>",
