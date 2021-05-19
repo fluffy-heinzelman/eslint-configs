@@ -15,6 +15,10 @@ This config ...
 - extends [`@heinzelman-labs/eslint-config-base`](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/tree/master/packages/eslint-config-base).
 - is compatible with ESLint `5.x`,  `6.x`,  `7.x`.
 
+Source code of this package can be found on ...
+- [Gitlab](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/tree/master/packages/eslint-config-react)
+- [GitHub (Mirror)](https://github.com/fluffy-heinzelman/eslint-configs/tree/master/packages/eslint-config-react)
+
 ## Installation
 
 ### yarn 
