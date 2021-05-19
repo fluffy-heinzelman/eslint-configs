@@ -19,6 +19,10 @@ The default config additionally extends [recommended-requiring-type-checking](ht
 
 This config is compatible with ESLint `6.x` and `7.x`, older versions are not supported.
 
+Source code of this package can be found on ...
+- [Gitlab](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/tree/master/packages/eslint-config-typescript)
+- [GitHub (Mirror)](https://github.com/fluffy-heinzelman/eslint-configs/tree/master/packages/eslint-config-typescript)
+
 ## Installation
 
 ### yarn 

@@ -13,6 +13,10 @@ This config ...
 - extends [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base) `14.1.0`.
 - is compatible with ESLint `5.x`,  `6.x`,  `7.x`.
 
+Source code of this package can be found on ...
+- [Gitlab](https://gitlab.com/fluffy-heinzelman/eslint-configs/-/tree/master/packages/eslint-config-base)
+- [GitHub (Mirror)](https://github.com/fluffy-heinzelman/eslint-configs/tree/master/packages/eslint-config-base)
+
 ## Installation
 
 ### yarn 
